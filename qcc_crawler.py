@@ -223,7 +223,7 @@ class Qichacha_crawler():
 
     #根据关键字爬取链接
     def getLinks(self,keyword,num):
-        print ("开始获取关键词对应链接.....")
+        print ("开始获取关键词[%s]对应链接....." % keyword)
         all_links = []
         page_link = 'http://www.qichacha.com/search?key='+urllib.parse.quote(keyword)
         soup,html = self.download(page_link)
@@ -245,7 +245,7 @@ class Qichacha_crawler():
                     f.write(html.decode(encoding="utf-8"))
         except Exception as e:
             return all_links
-        print(len(all_links))
+        print('get links cnt = %d' % len(all_links))
         return all_links
       
     def verify(self):
